@@ -1,0 +1,311 @@
+<div class="row container text-center">
+    <div class="col">
+        <div class="">
+            <img src="/img/est.png" alt="no image" class="my-5 text-center titulos">
+        </div>
+    </div>
+    <div class="col mt-5">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-3">
+                    <h1 id="plataforma" class="text-light my-5 text-end">NO</h1>
+            </div>
+            <div class="col-7">
+                <h1 id="nombre" class="text-light my-5 text-uppercase text-start">Info</h1>
+            </div>
+        </div>
+    </div>
+</div>            
+                
+
+
+<div class="container">
+  <div class="row ">
+    <div class="col-3 text-light">
+        <div class="row text-center">
+            <h3>NIVEL</h3>
+            <div class="leveling">
+                <p id="nivel" class="position-relative top-50 start-50 translate-middle-x py-4 text-dark fw-bold"></p>
+            </div>
+        </div>
+        <br>
+        <div class="row text-center">
+            <div class="col">
+                <h3>BR</h3>
+                <img id="imgBR" src="/img/loading.png" alt="" style="height: 8em; width: 8em">
+            </div>
+            <div class="col">
+                <h3>ARENAS</h3>
+                <img  id="imgAR" src="/img/loading.png" alt="" style="height: 8em; width: 8em">
+            </div>
+        </div>
+
+        <div class="row my-4">
+            <button type="button" class="btn btn-secondary" onclick="">Revelar</button>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-primary" onclick="update()">Actualizar</button>
+        </div>
+        <div class="row mt-4">
+            <button type="button" class="btn btn-danger" onclick="deleteUser()">Borrar</button>
+        </div>
+    </div>
+
+        <div class="col-9 text-center">
+                <div class="row text-light">
+                    <div class="col">
+                        <h3>Leyenda Favorita</h3>
+                        <img id="fotoLeyenda" src="/img/legends/sombra.png" alt="" style="height: 20em; width: 20em;">
+                        <h4 id="nombreLeyenda">Elije tu Leyenda</h4>
+                    </div>
+                    <div class="col">
+                        <h3>Arma Favorita</h3>
+                        <div class="arma">
+                        <img id="fotoArma" src="/img/weapons/sombraA.webp" alt="" style="width: 18em; transform: rotate(75deg);" class="mt-3">                        
+                        </div> 
+                        <h4 id="nombreArma">Elije tu Arma</h4>
+                    </div>
+                    <div class="col">
+                        <h3>Mapa Favorito</h3>
+                        <div class="arma">
+                        <img id="fotoMapa" src="/img/maps/sombraM.webp" alt="" style="width: 12em;" class="mt-3">
+                        </div>
+                        <h4 id="nombreMapa">Elije tu Mapa</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <select id="leyenda" class="form-select position-relative top-50 start-50 translate-middle" aria-label="Default select example" style="max-width:70%;">
+                            <option value="sombra" selected disabled>Selecciona tu Leyenda</option>
+                            <option value="ash">Ash</option>
+                            <option value="bangalore">Bangalore</option>
+                            <option value="bloodhound">Bloodhound</option>
+                            <option value="caustic">Caustic</option>
+                            <option value="crypto">Crypto</option>
+                            <option value="fuse">Fuse</option>
+                            <option value="gibraltar">Gibraltar</option>
+                            <option value="horizon">Horizon</option>
+                            <option value="lifeline">Lifeline</option>
+                            <option value="loba">Loba</option>
+                            <option value="pathfinder">Pathfinder</option>
+                            <option value="rampart">Rampart</option>
+                            <option value="revenant">Revenant</option>
+                            <option value="seer">Seer</option>
+                            <option value="valkyrie">Valkyrie</option>
+                            <option value="wattson">Wattson</option>
+                            <option value="wraith">Wraith</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select id="arma" class="form-select position-relative top-50 start-50 translate-middle" aria-label="Default select example" style="max-width:70%;">
+                            <option value="sombraA" selected disabled>Selecciona tu Arma</option>
+                            <option value="havoc">Havoc</option>
+                            <option value="Flatline">Flatline</option>
+                            <option value="Hemlok">Hemlok</option>
+                            <option value="Carabine">Carabine</option>
+                            <option value="Alternator">Alternator</option>
+                            <option value="R99">R-99</option>
+                            <option value="C.A.R._SMG">C.A.R.</option>
+                            <option value="Prowler">Prowler</option>
+                            <option value="Volt">Volt</option>
+                            <option value="Devotion_LMG">Devotion</option>
+                            <option value="L-STAR_EMG">L-STAR</option>
+                            <option value="Rampage_LMG">Rampage</option>
+                            <option value="M600_Spitfire">Spitfire</option>
+                            <option value="Triple_Take">Triple Take</option>
+                            <option value="30-30_Repeater">Repeater</option>
+                            <option value="Bocek_Compound_Bow">Bocek Bow</option>
+                            <option value="G7_Scout">G7 Scout</option>
+                            <option value="Charge_Rifle">Carge Rifle</option>
+                            <option value="Longbow_DMR">Longbow</option>
+                            <option value="Sentinel">Sentinel</option>
+                            <option value="Kraber_.50-Cal_Sniper">Kraber</option>
+                            <option value="EVA-8_Auto">EVA 8</option>
+                            <option value="Mastiff_Shotgun">Mastiff</option>
+                            <option value="Mozambique_Shotgun">Mozambique</option>
+                            <option value="Peacekeeper">Peacekeeper</option>
+                            <option value="RE-45_Auto">RE-45</option>
+                            <option value="P2020">P2020</option>
+                            <option value="Wingman">Wingman</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select id="mapa" class="form-select position-relative top-50 start-50 translate-middle" aria-label="Default select example" style="max-width:70%;">
+                            <option value="sombraM" selected disabled>Selecciona tu Mapa</option>
+                            <option value="KingsCanyon">Kings Canyon</option>
+                            <option value="WorldsEdge">Worlds Edge</option>
+                            <option value="Olympus">Olympus</option>
+                            <option value="StormPoint">Storm Point</option>
+                        </select>
+                    </div>
+                </div>
+        </div>
+  </div>
+</div>
+
+
+<script>
+    const payload = localStorage.getItem("playload")
+
+    const read = async() => {
+        const res = await fetch('/api/v1/accounts')
+        const data = await res.json()
+        const account = data.accounts.find(e => e.id_usuario == payload)
+            
+            const br = account.rango_br
+            const ar = account.rango_ar
+            const name = account.nombre
+            const platform = account.plataforma
+            const level = account.nivel
+            const legend = account.leyenda
+            const weapon = account.arma
+            const fMap = account.mapa
+
+
+        if(br != null){
+            const imgBR = document.getElementById("imgBR")
+            imgBR.src = `${br}`
+        }
+        if(ar != null){
+            const imgAR = document.getElementById("imgAR")
+            imgAR.src = `${ar}`
+        }
+        if(level != null){    
+            const pLevel = document.getElementById("nivel")
+            pLevel.innerHTML = `${level}`
+        }
+        if(platform != null){    
+            const pPlatform = document.getElementById("plataforma")
+            pPlatform.innerHTML = `${platform}`
+        }
+        if(name != null){
+            const pName = document.getElementById("nombre")
+            pName.innerHTML = `${name}`
+        }
+        if(legend != null){
+            const fLegend = document.getElementById("fotoLeyenda")
+            fLegend.src = `/img/legends/${legend}.png`
+            const pLegend = document.getElementById("nombreLeyenda")
+            const selectLegend = document.getElementById("leyenda").value = legend
+            var x = document.getElementById("leyenda").selectedIndex;
+            var y = document.getElementById("leyenda").options;
+            pLegend.innerHTML = y[x].text
+        }
+        if(weapon != null){
+            const fWeapon = document.getElementById("fotoArma")
+            fWeapon.src = `/img/weapons/${weapon}.webp`
+            const pWeapon = document.getElementById("nombreArma")
+            const selectWeapon = document.getElementById("arma").value = weapon
+            var x = document.getElementById("arma").selectedIndex;
+            var y = document.getElementById("arma").options;
+            pWeapon.innerHTML = y[x].text
+        }
+        if(fMap != null){
+            const foMap = document.getElementById("fotoMapa")
+            foMap.src = `/img/maps/${fMap}.webp`
+            const pMap = document.getElementById("nombreMapa")
+            const selectMap = document.getElementById("mapa").value = fMap
+            var x = document.getElementById("mapa").selectedIndex;
+            var y = document.getElementById("mapa").options;
+            pMap.innerHTML = y[x].text
+        }
+    }
+
+
+    
+
+    const legend = document.getElementById("leyenda")
+    legend.addEventListener("change", () => {
+        document.getElementById("fotoLeyenda").src = `/img/legends/${legend.value}.png`
+        document.getElementById("nombreLeyenda").innerHTML = legend.options[legend.selectedIndex].text;
+    })
+
+    const fMap = document.getElementById("mapa")
+    fMap.addEventListener("change", () => {
+        document.getElementById("fotoMapa").src = `/img/maps/${fMap.value}.webp`
+        document.getElementById("nombreMapa").innerHTML = fMap.options[fMap.selectedIndex].text;
+    })
+
+    const weapon = document.getElementById("arma")
+    weapon.addEventListener("change", () => {
+        document.getElementById("fotoArma").src = `/img/weapons/${weapon.value}.webp`
+        document.getElementById("nombreArma").innerHTML = weapon.options[weapon.selectedIndex].text;
+    })
+
+
+                const update = async() => {
+        const nombre = document.getElementById("nombre").innerHTML
+        const plataforma = document.getElementById("plataforma").innerHTML
+        const nivel = document.getElementById("nivel").innerHTML
+        const rango_br = document.getElementById("imgBR").src
+        const rango_ar = document.getElementById("imgAR").src
+        const leyenda = document.getElementById("leyenda").value
+        const arma = document.getElementById("arma").value
+        const mapa = document.getElementById("mapa").value
+        const id_usuario = localStorage.getItem("payload")
+
+        if(leyenda === "sombra" || arma === "sombraA" || mapa === "sombraM"){
+            return alert("Vuelva a seleccionar sus preferencias para actualizar")
+        }
+
+        const obj = {id_usuario, nombre, plataforma, nivel, rango_br, rango_ar, leyenda, arma, mapa}
+
+        console.log(obj)
+
+         try {
+            const res = await fetch('/api/v1/accounts/:id', {
+                method: 'put',
+                //body: formData,
+                body: JSON.stringify(obj),
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            /*
+            const data = await res.json()
+            if(!data.ok){
+                return alert(data.msg) // data.msg
+            }
+            */
+
+                    window.location.href = `/estado`
+
+                }catch(error){
+                    console.log(error)
+                }
+         }
+
+         window.onload = read()
+
+
+
+        const deleteUser = async() => {
+            const id_usuario = localStorage.getItem("payload")
+            const obj = {id_usuario}
+                     try {
+            const res = await fetch('/api/v1/users/:id', {
+                method: 'delete',
+                //body: formData,
+                body: JSON.stringify(obj),
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            /*
+            const data = await res.json()
+            if(!data.ok){
+                return alert(data) // data.msg
+            }
+            */
+
+                    window.location.href = `/buscar`
+
+                }catch(error){
+                    console.log(error)
+                }
+        }
+
+</script>

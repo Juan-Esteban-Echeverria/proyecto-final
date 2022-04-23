@@ -1,0 +1,69 @@
+
+    <div class="container text-center">
+        <img src="/img/inc.png" alt="no image" class="my-5 text-center">
+    </div>
+    
+    <br>
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col">
+        <form id="formularioLogin">
+            <div class="form-group">
+                <div class="form-group">
+                    <label class="text-light">Email</label> <br>
+                    <input type="email" name="email" class="text-center mb-5 logInp" placeholder="player@apex.com"/>
+                </div>
+                <div class="form-group">
+                    <label class="text-light">Contraseña</label> <br>
+                    <input type="password" name="password" class="text-center logInp" placeholder="******"/>
+                </div>
+            </div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg mt-3">Ingresar</button>
+        </form>
+    </div>
+    <div class="col">
+      <img src="/img/apex-concept-art-wallpaper-crypto.jpg" alt="no image" class="loginImg mt-4">
+        <h2 class="text-light">¿Aún no tienes cuenta? <br> <a href="/register">Regístrate</a></h2>
+        
+    </div>
+  </div>
+</div>
+
+
+<script>
+    document.addEventListener('submit', async(e) => {
+        e.preventDefault()
+
+        const formData = new FormData(e.target)
+        const obj = Object.fromEntries(formData)
+
+        console.log(obj)
+
+        try {
+            const res = await fetch('/api/v1/login', {
+                method: 'post',
+                //body: formData,
+                body: JSON.stringify(obj),
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+
+            const data = await res.json()
+            if(!data.ok){
+                return alert(data.msg)
+            }
+
+            localStorage.setItem('token', data.token)
+            const {id} = data.payload
+            localStorage.setItem('payload', id)
+
+            window.location.href = `/buscar`
+
+        }catch(error){
+            console.log(error)
+        }
+    })
+</script>

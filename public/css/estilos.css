@@ -1,0 +1,77 @@
+body{
+    background-image: url(/img/fondo.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.loginImg{
+    width: 30em;
+    height: 20em;
+    border: 5px solid #024c18;
+}
+
+.registerImg{
+    width: 30em;
+    height: 20em;
+    border: 5px solid #07025f;
+}
+
+.buscarImg1{
+    width: 20em;
+    height: 30em;
+    border: 5px solid #07025f;
+}
+
+.buscarImg2{
+    width: 20em;
+    height: 30em;
+    border: 5px solid #07025f;
+}
+
+.logInp{
+     border-radius: 60px;
+     border: 1px solid #4b4b4b;
+     color: #000000;
+     background-color: #dedede;
+     width: 15em;
+     height: 2.5em;
+     font-size:xx-large;
+    }
+
+.regInp{
+    border-radius: 60px;
+    border: 1px solid #4b4b4b;
+    color: #000000;
+    background-color: #dedede;
+    width: 15em;
+    height: 2em;
+    font-size:xx-large;
+    }
+
+label{
+    font-size: xx-large;
+}
+
+.titulos{
+    max-width: 100%;
+}
+
+.arma{
+    margin-top: 6em;
+    background-image: url(/img/fondox.png);
+    height: 15em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+}
+
+.leveling{
+    background-image: url(/img/leveling.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    height: 7.5em;
+}

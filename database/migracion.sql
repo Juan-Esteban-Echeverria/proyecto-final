@@ -3,7 +3,7 @@
 CREATE TABLE usuarios
 (
     id_usuario serial NOT NULL,
-    email character varying(50) NOT NULL,
+    email character varying(50) unique NOT NULL,
     password character varying(100) NOT NULL,
         PRIMARY KEY (id_usuario)
 );
@@ -12,13 +12,16 @@ CREATE TABLE usuarios
 -- 2 Creacion de la Cuenta que ocupara el usuario
 CREATE TABLE cuenta
 (
-    id serial NOT NULL,
-    id_usuario integer NOT NULL,
+    id_cuenta serial NOT NULL,
+    id_usuario integer unique NOT NULL,
     nombre character varying(50),
     plataforma character varying(10),
     nivel integer,
-    rango_br integer,
-    rango_ar integer,
+    rango_br character varying(100),
+    rango_ar character varying(100),
+    leyenda character varying(50),
+    arma character varying(50),
+    mapa character varying(50),
         CONSTRAINT id_usuario FOREIGN KEY (id_usuario)
         REFERENCES public.usuarios (id_usuario) MATCH SIMPLE
 );
@@ -30,5 +33,5 @@ INSERT INTO public.usuarios(
 	VALUES ('holi@apex.cl', 123);
 
 INSERT INTO public.cuenta(
-	id_usuario, nombre, plataforma, nivel, rango_br, rango_ar)
-	VALUES (1, 'Raminshain', 'PS4', 500, 2830, 2934);
+	id_usuario, nombre, plataforma, nivel, rango_br, rango_ar, leyenda, arma, mapa)
+	VALUES (1, 'Raminshain', 'PS4', 500, 2830, 2934, 'Seer', 'R-99', 'Kings Canyon');

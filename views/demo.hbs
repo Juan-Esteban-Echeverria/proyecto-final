@@ -1,0 +1,11 @@
+<button onclick="llamar()">Click me</button>
+
+<script>
+    const llamar = () => {
+        fetch("/api/v1/users", {
+            headers: {
+                Authorization: "bearer " + localStorage.getItem("token")
+            }
+        }).then(res => res.json()).then(console.log).catch(console.error)
+    }
+</script>

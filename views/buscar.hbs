@@ -1,0 +1,55 @@
+
+
+<div class="container mt-5">
+  <div class="row ">
+    <div class="col">
+      <img src="/img/apex-concept-art-wallpaper-mobile-lifeline.png" alt="no image" class="buscarImg1 mt-4">
+    </div>
+        <div class="col text-center">
+                <div class="container text-center">
+                    <img src="/img/enc.png" alt="no image" class="my-5 text-center titulos">
+                </div>
+            <form>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label class="text-light">Plataforma</label> <br>
+                        <input type="text" name="plataforma" class="text-center mb-5 logInp" placeholder="PS4"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="text-light">Usuario</label> <br>
+                        <input type="text" name="usuario" class="text-center logInp" placeholder="ApexPredator"/>
+                    </div>
+                </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-lg mt-3">Buscar</button>
+            </form>
+        </div>
+    <div class="col text-end">
+      <img src="/img/apex-concept-art-wallpaper-mobile-gibraltar.png" alt="no image" class="buscarImg2 mt-4">
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+        document.addEventListener('submit', async(e) => {
+        e.preventDefault()
+
+        const formData = new FormData(e.target)
+        const obj = Object.fromEntries(formData)
+
+        //console.log(obj)
+
+        try {
+              const platform = obj.plataforma
+              const user = obj.usuario
+
+
+            window.location.href = `/resultado/?platform=${platform}&name=${user}`
+
+        }catch(error){
+            console.log(error)
+        }
+    })
+</script>
