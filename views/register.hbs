@@ -42,12 +42,10 @@
         const formData = new FormData(e.target)
         const obj = Object.fromEntries(formData)
 
-        console.log(obj)
 
         try {
             const res = await fetch('/api/v1/users', {
                 method: 'post',
-                //body: formData,
                 body: JSON.stringify(obj),
                 headers:{
                     'Content-Type': 'application/json'

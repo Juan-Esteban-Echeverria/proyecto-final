@@ -69,6 +69,7 @@
                 ]
           }
 
+            // LLAMADA DE LAS ESTADISTICAS DESDE LA API
               apiCall(platform, name).then(val => document.getElementById("plataforma").innerHTML = val[0])
               apiCall(platform, name).then(val => document.getElementById("jugador").innerHTML = val[1])
               apiCall(platform, name).then(val => document.getElementById("nivel").innerHTML = val[2])
@@ -76,23 +77,21 @@
               apiCall(platform, name).then(val => document.getElementById("rango_ar").src = val[4])
 
               
-
-                const call = async() => {
-        const nombre = document.getElementById("jugador").innerHTML
-        const plataforma = document.getElementById("plataforma").innerHTML
-        const nivel = document.getElementById("nivel").innerHTML
-        const rango_br = document.getElementById("rango_br").src
-        const rango_ar = document.getElementById("rango_ar").src
-        const id_usuario = localStorage.getItem("payload")
+    // REGISTRO DE LAS ESTADISTICAS EN LA BASE DE DATOS
+        const call = async() => {
+            const nombre = document.getElementById("jugador").innerHTML
+            const plataforma = document.getElementById("plataforma").innerHTML
+            const nivel = document.getElementById("nivel").innerHTML
+            const rango_br = document.getElementById("rango_br").src
+            const rango_ar = document.getElementById("rango_ar").src
+            const id_usuario = localStorage.getItem("payload")
 
         const obj = {id_usuario, nombre, plataforma, nivel, rango_br, rango_ar}
 
-        console.log(obj)
 
          try {
             const res = await fetch('/api/v1/accounts/:id', {
                 method: 'post',
-                //body: formData,
                 body: JSON.stringify(obj),
                 headers:{
                     'Content-Type': 'application/json'

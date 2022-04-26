@@ -153,6 +153,7 @@
 
     const read = async() => {
 
+    // OBTENER LA INFO DE LA CUENTA REGISTRADA POR EL USUARIO
         const res = await fetch('/api/v1/accounts')
         const data = await res.json()
         const payload = localStorage.getItem("payload")
@@ -168,7 +169,7 @@
             const weapon = account.arma
             const fMap = account.mapa
 
-
+        // REESCRIBIR LAS IMAGENES Y ESTADISTICAS
         if(br != null){
             const imgBR = document.getElementById("imgBR")
             imgBR.src = `${br}`
@@ -221,6 +222,7 @@
     window.onload = read()
     
 
+    // LEER E IMPRIMIR LOS NOMBRES DE LAS PREFERENCIAS SELECCIONADAS
     const legend = document.getElementById("leyenda")
     legend.addEventListener("change", () => {
         document.getElementById("fotoLeyenda").src = `/img/legends/${legend.value}.png`
@@ -239,7 +241,7 @@
         document.getElementById("nombreArma").innerHTML = weapon.options[weapon.selectedIndex].text;
     })
 
-
+    // ACTUALIZAR LAS ESTADISTICAS Y PREFERENCIAS EN LA BASE DE DATOS
         const update = async() => {
             const nombre = document.getElementById("nombre").innerHTML
             const plataforma = document.getElementById("plataforma").innerHTML
@@ -274,7 +276,7 @@
          }
 
 
-
+    // ELIMINAR LAS ESTADISTICAS DE LA BASE DE DATOS
         const deleteUser = async() => {
             const id_usuario = localStorage.getItem("payload")
             const obj = {id_usuario}
