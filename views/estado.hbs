@@ -7,12 +7,15 @@
     <div class="col mt-5">
         <div class="row">
             <div class="col-2"></div>
-            <div class="col-3">
-                    <h1 id="plataforma" class="text-light my-5 text-end">NO</h1>
+            <div class="col-3 my-5">
+                    <h1 id="plataforma" class="text-light ">NO</h1>
+                    <hr style="width: 120%; color: black; height: 4px; background-color:rgb(255, 0, 0); opacity: 100%;" />
             </div>
-            <div class="col-7">
-                <h1 id="nombre" class="text-light my-5 text-uppercase text-start">Info</h1>
+            <div class="col-7 my-5">
+                <h1 id="nombre" class="text-light  text-uppercase text-start" >Info</h1>
+                <hr style="width: 80%; color: black; height: 4px; background-color:rgb(255, 0, 0); opacity: 100%;" />
             </div>
+            
         </div>
     </div>
 </div>            
@@ -146,12 +149,15 @@
 
 
 <script>
-    const payload = localStorage.getItem("playload")
+
 
     const read = async() => {
+
         const res = await fetch('/api/v1/accounts')
         const data = await res.json()
+        const payload = localStorage.getItem("payload")
         const account = data.accounts.find(e => e.id_usuario == payload)
+
             
             const br = account.rango_br
             const ar = account.rango_ar
@@ -212,7 +218,7 @@
         }
     }
 
-
+    window.onload = read()
     
 
     const legend = document.getElementById("leyenda")
@@ -234,78 +240,57 @@
     })
 
 
-                const update = async() => {
-        const nombre = document.getElementById("nombre").innerHTML
-        const plataforma = document.getElementById("plataforma").innerHTML
-        const nivel = document.getElementById("nivel").innerHTML
-        const rango_br = document.getElementById("imgBR").src
-        const rango_ar = document.getElementById("imgAR").src
-        const leyenda = document.getElementById("leyenda").value
-        const arma = document.getElementById("arma").value
-        const mapa = document.getElementById("mapa").value
-        const id_usuario = localStorage.getItem("payload")
+        const update = async() => {
+            const nombre = document.getElementById("nombre").innerHTML
+            const plataforma = document.getElementById("plataforma").innerHTML
+            const nivel = document.getElementById("nivel").innerHTML
+            const rango_br = document.getElementById("imgBR").src
+            const rango_ar = document.getElementById("imgAR").src
+            const leyenda = document.getElementById("leyenda").value
+            const arma = document.getElementById("arma").value
+            const mapa = document.getElementById("mapa").value
+            const id_usuario = localStorage.getItem("payload")
 
-        if(leyenda === "sombra" || arma === "sombraA" || mapa === "sombraM"){
-            return alert("Vuelva a seleccionar sus preferencias para actualizar")
-        }
-
-        const obj = {id_usuario, nombre, plataforma, nivel, rango_br, rango_ar, leyenda, arma, mapa}
-
-        console.log(obj)
-
-         try {
-            const res = await fetch('/api/v1/accounts/:id', {
-                method: 'put',
-                //body: formData,
-                body: JSON.stringify(obj),
-                headers:{
-                    'Content-Type': 'application/json'
-                }
-            })
-
-            /*
-            const data = await res.json()
-            if(!data.ok){
-                return alert(data.msg) // data.msg
+            if(leyenda === "sombra" || arma === "sombraA" || mapa === "sombraM"){
+                return alert("Vuelva a seleccionar sus preferencias para actualizar")
             }
-            */
 
-                    window.location.href = `/estado`
+            const obj = {id_usuario, nombre, plataforma, nivel, rango_br, rango_ar, leyenda, arma, mapa}
 
-                }catch(error){
-                    console.log(error)
-                }
+
+            try {
+                const res = await fetch('/api/v1/accounts/:id', {
+                    method: 'put',
+                    body: JSON.stringify(obj),
+                    headers:{
+                        'Content-Type': 'application/json'
+                    }
+                })
+                        window.location.href = `/estado`
+
+            } catch(error){
+                console.log(error)
+            }
          }
-
-         window.onload = read()
 
 
 
         const deleteUser = async() => {
             const id_usuario = localStorage.getItem("payload")
             const obj = {id_usuario}
-                     try {
-            const res = await fetch('/api/v1/users/:id', {
-                method: 'delete',
-                //body: formData,
-                body: JSON.stringify(obj),
-                headers:{
-                    'Content-Type': 'application/json'
-                }
-            })
+                try {
+                    const res = await fetch('/api/v1/users/:id', {
+                        method: 'delete',
+                        body: JSON.stringify(obj),
+                        headers:{
+                            'Content-Type': 'application/json'
+                        }
+                    })
 
-            /*
-            const data = await res.json()
-            if(!data.ok){
-                return alert(data) // data.msg
-            }
-            */
+            window.location.href = `/buscar`
 
-                    window.location.href = `/buscar`
-
-                }catch(error){
+                } catch(error){
                     console.log(error)
                 }
         }
-
 </script>

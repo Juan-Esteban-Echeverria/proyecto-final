@@ -6,18 +6,18 @@ const { getUsersDB, createUserDB, getUserDB, createAccountDB, updateAccountDB, d
 // GETUSERS TRAER A TODOS LOS USUARIOS
 const getUsers = async(req, res) => {
     const response = await getUsersDB()
-    if(!response.ok){
-        return res.status(500).json({ok: false, msg: response.msg})
-    }
+        if(!response.ok){
+            return res.status(500).json({ok: false, msg: response.msg})
+        }
     return res.json({ok: true, users: response.users})
 }
 
 // GETACCOUNTS TRAER A TODAS LAS CUENTAS
 const getAccounts = async(req, res) => {
     const response = await getAccountsDB()
-    if(!response.ok){
-        return res.status(500).json({ok: false, msg: response.msg})
-    }
+        if(!response.ok){
+            return res.status(500).json({ok: false, msg: response.msg})
+        }
     return res.json({ok: true, accounts: response.accounts})
 }
 
@@ -25,9 +25,9 @@ const getAccounts = async(req, res) => {
 const createUser = async(req, res) => {
     try {
         const {email, password, re_password} = req.body
-        if(!email || !password || !re_password){
-            throw new Error("Algunos campos estan vacios")
-        }
+            if(!email || !password || !re_password){
+                throw new Error("Algunos campos estan vacios")
+            }
 
         if(password != re_password){
             throw new Error("Contraseñas desiguales")
@@ -38,18 +38,18 @@ const createUser = async(req, res) => {
         const hashPassword = await bcrypt.hash(password, salt)
 
         const response = await createUserDB({email, hashPassword})
-        if(!response.ok){
-            throw new Error(response.msg)
-        }
+            if(!response.ok){
+                throw new Error(response.msg)
+            }
 
         // TOKEN
         const payload = {id:response.id_usuario}
         const token = jwt.sign(payload, process.env.JWT_SECRET)
-        return res.json({
-            ok: true,
-            token,
-            payload
-        })
+            return res.json({
+                ok: true,
+                token,
+                payload
+            })
     } catch (error) {
         return res.status(400).json({
             ok: false,
@@ -60,38 +60,36 @@ const createUser = async(req, res) => {
 
 // LOGINUSER INGRESO DEL USUARIO A LA PLATAFORMA
 const loginUser = async(req, res) => {
-    console.log(req.body)
 
     try {
-    const {email, password} = req.body
-    if(!email || !password){
-        
-        throw new Error("Algunos campos estan vacios")
-    }
+        const {email, password} = req.body
+        if(!email || !password){
+            throw new Error("Algunos campos estan vacios")
+        }
 
-    const response = await getUserDB(email)
-    if(!response.ok){
-        throw new Error(response.msg)
-    }
+        const response = await getUserDB(email)
+            if(!response.ok){
+                throw new Error(response.msg)
+            }
 
-    if(!response.user){
-        throw new Error("No existe el email en el registro")
-    }
+        if(!response.user){
+            throw new Error("No existe el email en el registro")
+        }
 
-    const {user} = response
-    const comparePassword = await bcrypt.compare(password, user.password)
-    if(!comparePassword){
-        throw new Error("Contraseña incorrecta")
-    }
+        const {user} = response
+        const comparePassword = await bcrypt.compare(password, user.password)
+            if(!comparePassword){
+                throw new Error("Contraseña incorrecta")
+            }
 
-    const payload = {id:user.id_usuario}
-    const token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: "1h"})
+        const payload = {id:user.id_usuario}
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: "1h"})
 
-    return res.json({
-        ok: true,
-        token,
-        payload
-    })
+        return res.json({
+            ok: true,
+            token,
+            payload
+        })
     } catch (error) {
         return res.status(400).json({ok: false, msg: error.message})
     }

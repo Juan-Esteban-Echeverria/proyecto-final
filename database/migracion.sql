@@ -30,8 +30,8 @@ CREATE TABLE cuenta
 -- 3 Testeo de inserts en las tablas
 INSERT INTO public.usuarios(
 	email, password)
-	VALUES ('holi@apex.cl', 123);
+	VALUES ('holi@apex.cl', "$2a$10$pgVyMmpsVha/2pNgQ1rk0.kNTL9eQBZB92PtC9BwO4Bl.maUX3Im.");
 
 INSERT INTO public.cuenta(
 	id_usuario, nombre, plataforma, nivel, rango_br, rango_ar, leyenda, arma, mapa)
-	VALUES (1, 'Raminshain', 'PS4', 500, 2830, 2934, 'Seer', 'R-99', 'Kings Canyon');
+	VALUES (1, 'Raminshain', 'PS4', 500, "https://api.mozambiquehe.re/assets/ranks/gold4.png", "https://api.mozambiquehe.re/assets/ranks/silver1.png", 'seer', 'R99', 'KingsCanyon');

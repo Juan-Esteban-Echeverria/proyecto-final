@@ -39,12 +39,9 @@
         const formData = new FormData(e.target)
         const obj = Object.fromEntries(formData)
 
-        //console.log(obj)
-
         try {
               const platform = obj.plataforma
               const user = obj.usuario
-
 
             window.location.href = `/resultado/?platform=${platform}&name=${user}`
 

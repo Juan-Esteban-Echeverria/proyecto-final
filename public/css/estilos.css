@@ -29,6 +29,26 @@ body{
     border: 5px solid #07025f;
 }
 
+.img-wrapper{
+    width: 50em; /* width of container */
+    height: 15em; /* height of container */
+    object-fit:cover;
+    object-position: 20% 20%; /* try 20px 10px */ 
+    border: 5px solid black;
+}
+
+.img-wrapper2{
+    width: 20em; /* width of container */
+    height: 15em; /* height of container */
+    object-fit:cover;
+    object-position: 20% 20%; /* try 20px 10px */ 
+    border: 5px solid black;
+}
+
+.medalImg{
+    max-width: 9em;
+}
+
 .logInp{
      border-radius: 60px;
      border: 1px solid #4b4b4b;

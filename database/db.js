@@ -32,7 +32,7 @@ const getUsersDB = async() => {
 const getAccountsDB = async() => {
     const client = await pool.connect()
     try {
-        const res = await client.query('SELECT nombre, plataforma, nivel, rango_br, rango_ar, leyenda, arma, mapa FROM cuenta')
+        const res = await client.query('SELECT id_usuario, nombre, plataforma, nivel, rango_br, rango_ar, leyenda, arma, mapa FROM cuenta')
         return {
             ok: true, 
             accounts: res.rows

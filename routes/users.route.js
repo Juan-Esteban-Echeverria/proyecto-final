@@ -1,9 +1,8 @@
 const express = require("express")
 const { getUsers, createUser, loginUser, createAccount, updateAccount, deleteUser, getAccounts } = require("../controllers/user.controller")
-//const { requireAuth } = require("../middlewares/requireAuth")
 const router = express.Router()
 
-router.get("/users", getUsers) //requireAuth
+router.get("/users", getUsers)
 router.get("/accounts", getAccounts)
 router.post("/users",createUser)
 router.post("/login", loginUser)
