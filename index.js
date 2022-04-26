@@ -1,14 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const {create} = require("express-handlebars")
-//const {parsearToken} = require("./middlewares/requireAuth")
+
 
 const app = express();
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(__dirname + "/public"))
-//app.use(parsearToken)
+
 
 
 // CONFIGURAR PARTIALS HANDLEBARS
