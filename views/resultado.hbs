@@ -40,7 +40,7 @@
                     </div>
                 </div>
                     <br>
-                    <button id="reclamar" class="btn btn-primary btn-lg mt-3" onclick="call()">Reclamar</button>
+                    <button id="reclamar" class="btn btn-primary btn-lg mt-3 disabled" onclick="call()">Reclamar</button>
         </div>
   </div>
 </div>
@@ -70,13 +70,15 @@
           }
 
             // LLAMADA DE LAS ESTADISTICAS DESDE LA API
-              apiCall(platform, name).then(val => document.getElementById("plataforma").innerHTML = val[0])
-              apiCall(platform, name).then(val => document.getElementById("jugador").innerHTML = val[1])
-              apiCall(platform, name).then(val => document.getElementById("nivel").innerHTML = val[2])
-              apiCall(platform, name).then(val => document.getElementById("rango_br").src = val[3])
-              apiCall(platform, name).then(val => document.getElementById("rango_ar").src = val[4])
+                apiCall(platform, name).then(val => {
+                    document.getElementById("plataforma").innerHTML = val[0]
+                    document.getElementById("jugador").innerHTML = val[1]
+                    document.getElementById("nivel").innerHTML = val[2]
+                    document.getElementById("rango_br").src = val[3]
+                    document.getElementById("rango_ar").src = val[4]
+                    document.getElementById("reclamar").classList.remove("disabled")
+                })
 
-              
     // REGISTRO DE LAS ESTADISTICAS EN LA BASE DE DATOS
         const call = async() => {
             const nombre = document.getElementById("jugador").innerHTML

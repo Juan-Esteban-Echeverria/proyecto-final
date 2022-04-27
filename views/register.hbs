@@ -11,15 +11,15 @@
             <div class="form-group">
                 <div class="form-group">
                     <label class="text-light">Email</label> <br>
-                    <input type="email" name="email" class="text-center mb-3 regInp" placeholder="player@apex.com"/>
+                    <input id="emailRegister" type="email" name="email" class="text-center mb-3 regInp" placeholder="player@apex.com"/>
                 </div>
                 <div class="form-group">
                     <label class="text-light">Contraseña</label> <br>
-                    <input type="password" name="password" class="text-center mb-3 regInp" placeholder="******"/>
+                    <input id="passwordRegister" type="password" name="password" class="text-center mb-3 regInp" placeholder="******"/>
                 </div>
                 <div class="form-group">
                     <label class="text-light">Repita Contraseña</label> <br>
-                    <input type="password" name="re_password" class="text-center mb-3 regInp" placeholder="******"/>
+                    <input id="re_passwordRegister" type="password" name="re_password" class="text-center mb-3 regInp" placeholder="******"/>
                 </div>
             </div>
                 <br>
@@ -38,6 +38,13 @@
 <script>
     document.addEventListener('submit', async(e) => {
         e.preventDefault()
+
+        valorEmail = document.getElementById("emailRegister").value
+        valorPassword = document.getElementById("passwordRegister").value
+        valorRePassword = document.getElementById("re_passwordRegister").value
+        if(/^\s+$/.test(valorEmail) || /^\s+$/.test(valorPassword) || /^\s+$/.test(valorRePassword)){
+           return alert("Se detectaron espacios en blanco en el formulario")
+        }
 
         const formData = new FormData(e.target)
         const obj = Object.fromEntries(formData)

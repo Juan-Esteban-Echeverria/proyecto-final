@@ -12,11 +12,11 @@
             <div class="form-group">
                 <div class="form-group">
                     <label class="text-light">Email</label> <br>
-                    <input type="email" name="email" class="text-center mb-5 logInp" placeholder="player@apex.com"/>
+                    <input id="emailLogin" type="email" name="email" class="text-center mb-5 logInp" placeholder="player@apex.com"/>
                 </div>
                 <div class="form-group">
                     <label class="text-light">Contraseña</label> <br>
-                    <input type="password" name="password" class="text-center logInp" placeholder="******"/>
+                    <input id="passwordLogin" type="password" name="password" class="text-center logInp" placeholder="******"/>
                 </div>
             </div>
                 <br>
@@ -34,6 +34,12 @@
 <script>
     document.addEventListener('submit', async(e) => {
         e.preventDefault()
+
+        valorEmail = document.getElementById("emailLogin").value
+        valorPassword = document.getElementById("passwordLogin").value
+        if(/^\s+$/.test(valorEmail) || /^\s+$/.test(valorPassword)){
+           return alert("Se detectaron espacios en blanco en el formulario")
+        }
 
         const formData = new FormData(e.target)
         const obj = Object.fromEntries(formData)
@@ -57,7 +63,17 @@
             const {id} = data.payload
             localStorage.setItem('payload', id)
 
-            window.location.href = `/buscar`
+        // CONFIRMAR SI EL USUARIO TIENE UNA CUENTA REGISTRADA
+        const resp = await fetch('/api/v1/accounts')
+        const datax = await resp.json()
+        const payload = localStorage.getItem("payload")
+        const account = datax.accounts.find(e => e.id_usuario == payload)
+
+        if(account != undefined){
+            return window.location.href = `/estado`
+        }
+
+        window.location.href = `/buscar`
 
         }catch(error){
             console.log(error)

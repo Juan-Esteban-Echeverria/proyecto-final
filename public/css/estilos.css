@@ -30,7 +30,7 @@ body{
 }
 
 .img-wrapper{
-    width: 50em; /* width of container */
+    width: 40em; /* width of container */
     height: 15em; /* height of container */
     object-fit:cover;
     object-position: 20% 20%; /* try 20px 10px */ 
@@ -38,7 +38,7 @@ body{
 }
 
 .img-wrapper2{
-    width: 20em; /* width of container */
+    width: 18em; /* width of container */
     height: 15em; /* height of container */
     object-fit:cover;
     object-position: 20% 20%; /* try 20px 10px */ 
