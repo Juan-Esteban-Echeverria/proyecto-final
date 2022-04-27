@@ -13,7 +13,7 @@
                 <div class="form-group">
                     <div class="form-group">
                         <label class="text-light">Plataforma</label> <br>
-                        <input type="text" name="plataforma" class="text-center mb-5 logInp" placeholder="PS4"/>
+                        <input id="platformText" type="text" name="plataforma" class="text-center mb-5 logInp" placeholder="PS4/PC/X1"/>
                     </div>
                     <div class="form-group">
                         <label class="text-light">Usuario</label> <br>
@@ -36,6 +36,17 @@
     // ENVIAR INFO DEL FORMULARiO DE BUSQUEDA
         document.addEventListener('submit', async(e) => {
         e.preventDefault()
+
+        const platformText = document.getElementById("platformText")
+        if(platformText.value != "PS4" || platformText.value != "PS5" || platformText.value != "PC" || platformText.value != "X1"){
+            platformText.innerHTML = " "
+            return alert(`
+            Porfavor Ingrese la Plataforma
+            en el Formato Recomendado
+            PS4
+            PC
+            X1`)
+        }
 
         const formData = new FormData(e.target)
         const obj = Object.fromEntries(formData)
