@@ -2,10 +2,11 @@
 
 <div class="container mt-5">
   <div class="row ">
-    <div class="col">
+    <div class="col-3">
       <img src="/img/apex-concept-art-wallpaper-mobile-lifeline.png" alt="no image" class="buscarImg1 mt-4">
+      <h2 class="text-light text-center"><a onclick="logout()" class="text-decoration-none">Prefiero hacerlo mas tarde...</a></h2>
     </div>
-        <div class="col text-center">
+        <div class="col-6 text-center">
                 <div class="container text-center">
                     <img src="/img/enc.png" alt="no image" class="my-5 text-center titulos">
                 </div>
@@ -13,7 +14,7 @@
                 <div class="form-group">
                     <div class="form-group">
                         <label class="text-light">Plataforma</label> <br>
-                        <input id="platformText" type="text" name="plataforma" class="text-center mb-5 logInp" placeholder="PS4/PC/X1"/>
+                        <input id="platformText" type="text" name="plataforma" class="text-center mb-5 logInp" placeholder="PS4/PC/X1/SWITCH"/>
                     </div>
                     <div class="form-group">
                         <label class="text-light">Usuario</label> <br>
@@ -24,8 +25,9 @@
                     <button type="submit" class="btn btn-primary btn-lg mt-3">Buscar</button>
             </form>
         </div>
-    <div class="col text-end">
+    <div class="col-3 text-end">
       <img src="/img/apex-concept-art-wallpaper-mobile-gibraltar.png" alt="no image" class="buscarImg2 mt-4">
+      <h2 class="text-light text-center"><a target="_blank" href="https://apexlegendsapi.com/#introduction" class="text-decoration-none">Quiero saber mas de la API</a></h2>
     </div>
   </div>
 </div>
@@ -38,15 +40,16 @@
         e.preventDefault()
 
         const platformText = document.getElementById("platformText")
-        const platforms = ["PS4", "PC", "X1"]
+        const platforms = ["PS4", "PC", "X1", "SWITCH"]
         if(!platforms.includes(platformText.value.toUpperCase())){
             return alert(`
             Porfavor Ingrese la Plataforma en el Formato Recomendado
-            PS4
-            PC
-            X1`)
+            PS4 (para PS4 y PS5)
+            PC (para Origin y Steam)
+            X1 (para XBox One)
+            SWITCH (para Switch)`)
         }
-        
+
         const formData = new FormData(e.target)
         const obj = Object.fromEntries(formData)
 
@@ -60,4 +63,10 @@
             console.log(error)
         }
     })
+
+    function logout(){
+    localStorage.removeItem("token")
+    localStorage.removeItem("payload")
+    window.location.href = "/"
+    }
 </script>

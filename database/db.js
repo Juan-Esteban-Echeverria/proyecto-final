@@ -12,7 +12,7 @@ const pool = new Pool(
 const getUsersDB = async() => {
     const client = await pool.connect()
     try {
-        const res = await client.query('SELECT email, password FROM usuarios')
+        const res = await client.query('SELECT email FROM usuarios')
         return {
             ok: true,
             users: res.rows

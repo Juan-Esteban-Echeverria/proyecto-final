@@ -31,15 +31,15 @@ body{
 
 .img-wrapper{
     width: 40em; /* width of container */
-    height: 15em; /* height of container */
+    height: 13em; /* height of container */
     object-fit:cover;
-    object-position: 20% 20%; /* try 20px 10px */ 
+    object-position: 20% 10%; /* try 20px 10px */ 
     border: 5px solid black;
 }
 
 .img-wrapper2{
     width: 18em; /* width of container */
-    height: 15em; /* height of container */
+    height: 20em; /* height of container */
     object-fit:cover;
     object-position: 20% 20%; /* try 20px 10px */ 
     border: 5px solid black;
@@ -95,3 +95,4 @@ label{
     position: relative;
     height: 7.5em;
 }
+
