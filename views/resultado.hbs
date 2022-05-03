@@ -11,13 +11,13 @@
                 <img src="/img/perf.png" alt="no image" class="my-5 text-center titulos">
             </div>
             
-                <div class="row">
+                <div class="row text-light" id="noEncontrado">
                     <div class="col-2"></div>
                     <div class="col-3">
-                         <h1 id="plataforma" class="text-light my-5 text-end">Loading...</h1>
+                         <h1 id="plataforma" class="my-5 text-end">Loading...</h1>
                     </div>
                     <div class="col-7">
-                        <h1 id="jugador" class="text-light my-5 text-start">Loading...</h1>
+                        <h1 id="jugador" class="my-5 text-start">Loading...</h1>
                     </div>
                 </div>
                 
@@ -59,6 +59,12 @@
               const url = `https://api.mozambiquehe.re/bridge?version=5&platform=${platform}&player=${username}&auth=5d1WfrAudhH5NvKkebGp`
               var res = await fetch (url)
               var response = await res.json();
+                if(response.Error == "Player not found. Try again?"){
+                        document.getElementById("plataforma").innerHTML = "Jugador"
+                        document.getElementById("jugador").innerHTML = "No Encontrado"
+                        document.getElementById("noEncontrado").classList.remove('text-light')
+                        document.getElementById("noEncontrado").classList.add('text-danger')
+                    }
               return [response.global.platform, 
                     response.global.name, 
                     response.global.level,       
