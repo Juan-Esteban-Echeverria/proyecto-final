@@ -172,6 +172,7 @@ const deleteUserDB = async(id_usuario) => {
     }
 }
 
+// MIGRACION
 const migrate = async () => {
     try {
         const data = fs.readFileSync(__dirname + "/migracion.sql", {

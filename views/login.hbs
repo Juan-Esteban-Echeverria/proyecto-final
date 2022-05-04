@@ -35,6 +35,7 @@
     document.addEventListener('submit', async(e) => {
         e.preventDefault()
 
+        // VALIDACIONES FORMULARIO
         valorEmail = document.getElementById("emailLogin").value
         valorPassword = document.getElementById("passwordLogin").value
         if(/^\s+$/.test(valorEmail) || /^\s+$/.test(valorPassword)){
@@ -45,6 +46,7 @@
         const obj = Object.fromEntries(formData)
 
 
+        // LOGIN
         try {
             const res = await fetch('/api/v1/login', {
                 method: 'post',

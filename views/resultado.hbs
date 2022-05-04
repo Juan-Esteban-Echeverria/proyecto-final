@@ -48,10 +48,8 @@
 <script>
         const valores = window.location.search;
 
-        //Creamos la instancia
+        //ACCEDER A LOS PARAMETROS
         const urlParams = new URLSearchParams(valores);
-
-        //Accedemos a los valores
         var platform = urlParams.get('platform');
         var name = urlParams.get('name');
 

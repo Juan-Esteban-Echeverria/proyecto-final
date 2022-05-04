@@ -30,7 +30,7 @@ CREATE TABLE cuenta
 -- 3 Testeo de inserts en las tablas
 INSERT INTO public.usuarios(
 	email, password)
-	VALUES ('holi@apex.cl', "$2a$10$pgVyMmpsVha/2pNgQ1rk0.kNTL9eQBZB92PtC9BwO4Bl.maUX3Im.");
+	VALUES ('ejemplo@apex.cl', "$2a$10$pgVyMmpsVha/2pNgQ1rk0.kNTL9eQBZB92PtC9BwO4Bl.maUX3Im.");
 
 INSERT INTO public.cuenta(
 	id_usuario, nombre, plataforma, nivel, rango_br, rango_ar, leyenda, arma, mapa)
